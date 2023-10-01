@@ -1,86 +1,85 @@
-import './styles.css';
+class Estado {
+  cidade: string;
+  pai: Estado | null;
 
-class Vertex {
-  constructor(public positionX: number, public positionY: number) {}
+  constructor(cidade: string, pai: Estado | null) {
+    this.cidade = cidade;
+    this.pai = pai;
+  }
 }
 
-class Robot {
-  constructor(public coordinates: Vertex, public distanceTraveled: number) {}
-}
+class Busca {
+  rotas: { [key: string]: string[] };
 
-class Goal {
-  constructor(public coordinates: Vertex) {}
-}
-
-class Warehouse {
-  constructor(private matrix: (number | string)[][]) {}
-
-  getRows(): number {
-    return this.matrix.length;
+  constructor() {
+    this.rotas = {
+      'Porto Alegre': ['Florianópolis', 'São Paulo'],
+      'Florianópolis': ['Curitiba', 'Porto Alegre'],
+      'Curitiba': ['Florianópolis', 'São Paulo', 'Rio de Janeiro'],
+      'São Paulo': ['Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Salvador'],
+      'Rio de Janeiro': ['Belo Horizonte', 'Cuiabá', 'Curitiba'],
+      'Belo Horizonte': ['Brasília', 'Cuiabá', 'São Paulo', 'Rio de Janeiro'],
+      'Brasília': ['Belo Horizonte', 'Fortaleza'],
+      'Salvador': ['Fortaleza', 'São Paulo'],
+      'Cuiabá': ['Belo Horizonte', 'Manaus', 'Rio de Janeiro'],
+      'Fortaleza': ['Manaus', 'Salvador', 'Brasília'],
+      'Manaus': ['Cuiabá', 'Fortaleza']
+    };
   }
 
-  getCols(): number {
-    return this.matrix[0].length;
-  }
+  busca(origem: string, destino: string): [Estado | null, number, number] {
+    const atual = new Estado(origem, null);
+    const fronteira: Estado[] = [atual];
+    const visitados: Set<string> = new Set();
+    visitados.add(atual.cidade);
+    let qtdVisitados = 1;
+    let qtdExpandidos = 0;
+    let resultado: Estado | null = null;
 
-  getElementAt(row: number, col: number): number | string {
-    if (row < 0 || row >= this.getRows() || col < 0 || col >= this.getCols()) {
-      throw new Error("Indices out of bounds of the matrix.");
+    while (fronteira.length > 0 && resultado === null) {
+      const atual = fronteira.shift()!;
+      qtdExpandidos++;
+      const cidades = this.rotas[atual.cidade];
+
+      for (const cidade of cidades) {
+        if (cidade === destino) {
+          qtdVisitados++;
+          const novo = new Estado(cidade, atual);
+          visitados.add(cidade);
+          resultado = novo;
+        } else if (!visitados.has(cidade)) {
+          qtdVisitados++;
+          const novo = new Estado(cidade, atual);
+          fronteira.push(novo);
+          visitados.add(cidade);
+        }
+      }
     }
-    return this.matrix[row][col];
+
+    return [resultado, qtdVisitados, qtdExpandidos];
   }
 
-  isCellEmpty(row: number, col: number): boolean {
-    const element = this.getElementAt(row, col);
-    return element === " ";
-  }
-
-  isCellOccupied(row: number, col: number): boolean {
-    const element = this.getElementAt(row, col);
-    return typeof element === "number";
-  }
-}
-
-function breadthFirstSearch(robot: Robot, goals: Goal[]): string[] | null {
-  var Xinicial = robot.coordinates.positionX;
-  var Yinicial = robot.coordinates.positionX;
-  var qtdVisitados = 1;
-  var qtdExpandidos = 0;
-  const filhos: any[] = [];
-  const visitados: any[] = [];
-
-  const matriz: any[][] = [
-    [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-    [1, null, 11, 21, null, 31, 41, null, 51, 61, null, 71, 81, null, 91],
-  ];
-  
-  function gerarFilhos(){
-   
-  }
-
-  function mostrarResultados(){
-
-  }
-
-  return ["Caminho não encontrado"];
-}
-
-// Exemplo de uso com a nova matriz:
-function main(){
-  console.log("teste");
-  const initialCoordinates = new Vertex(1, 1);
-  const robot = new Robot(initialCoordinates, 0);
-  const goalCoordinates = new Vertex(12, 14); // Altere as coordenadas do objetivo conforme necessário
-  const goal = new Goal(goalCoordinates);
-  
-  const result = breadthFirstSearch(robot, [goal]);
-  
-  if (result) {
-    console.log("Caminho encontrado:");
-    console.log(result.join(" -> "));
-  } else {
-    console.log("Caminho não encontrado.");
+  mostraResultado(resultado: Estado | null, qtdVisitados: number, qtdExpandidos: number) {
+    if (resultado === null) {
+      console.log('Solução não encontrada.');
+    } else {
+      console.log('***Rota encontrada***');
+      while (resultado !== null) {
+        console.log(resultado.cidade);
+        resultado = resultado.pai;
+      }
+    }
+    console.log('Estados visitados: ', qtdVisitados);
+    console.log('Estados expandidos: ', qtdExpandidos);
   }
 }
 
-window.addEventListener("load", () => main());
+class BuscaLargura extends Busca {
+  realizaBusca(origem: string, destino: string) {
+    const [resultado, qtdVisitados, qtdExpandidos] = this.busca(origem, destino);
+    this.mostraResultado(resultado, qtdVisitados, qtdExpandidos);
+  }
+}
+
+const algbusca = new BuscaLargura();
+algbusca.realizaBusca('Porto Alegre', 'Manaus');

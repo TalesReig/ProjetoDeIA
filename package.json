@@ -24,6 +24,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "queue": "^7.0.0",
+    "treelib": "^1.1.3",
     "uuid": "^9.0.0"
   }
 }
