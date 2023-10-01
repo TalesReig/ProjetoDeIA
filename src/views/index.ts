@@ -46,16 +46,16 @@ function breadthFirstSearch(robot: Robot, goals: Goal[]): string[] | null {
   var Yinicial = robot.coordinates.positionX;
   var qtdVisitados = 1;
   var qtdExpandidos = 0;
-  //criar uma lista com os nós da fronteira (nós a serem expandidos)
-  //criar uma lista com os nós já expandidos
-  
+  //criar uma fila(porque sempre vamos expandir o primeiro) com os nós da fronteira (nós a serem expandidos)
+  //criar uma lista com os nós já expandidos(para não fazer o msm caminho 2 vezes)
+
   const matriz: any[][] = [
     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     [1, null, 11, 21, null, 31, 41, null, 51, 61, null, 71, 81, null, 91],
   ];
   
   function gerarFilhos(){
-  
+   //cada nó vai gerar ATÉ 4 filhos ( pode ser menos )
   }
 
   function mostrarResultados(){
