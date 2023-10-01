@@ -42,55 +42,24 @@ class Warehouse {
 }
 
 function breadthFirstSearch(robot: Robot, goals: Goal[]): string[] | null {
+  var Xinicial = robot.coordinates.positionX;
+  var Yinicial = robot.coordinates.positionX;
+  var qtdVisitados = 1;
+  var qtdExpandidos = 0;
+  //criar uma lista com os nós da fronteira (nós a serem expandidos)
+  //criar uma lista com os nós já expandidos
   
   const matriz: any[][] = [
     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     [1, null, 11, 21, null, 31, 41, null, 51, 61, null, 71, 81, null, 91],
   ];
+  
+  function gerarFilhos(){
+  
+  }
 
-  const warehouse = new Warehouse(matriz);
-  const queue: Robot[] = [robot];
-  const visited: Set<string> = new Set();
+  function mostrarResultados(){
 
-  while (queue.length > 0) {
-    debugger;
-    const currentRobot = queue.shift() as Robot;
-    const { coordinates, distanceTraveled } = currentRobot;
-    const { positionX, positionY } = coordinates;
-    visited.add(`${positionX}-${positionY}`);
-
-    if (goals.some((goal) => goal.coordinates.positionX === positionX && goal.coordinates.positionY === positionY)) {
-      // Encontrou um objetivo, retornar o caminho percorrido até ele
-      return [];
-    }
-
-    // Movimentos possíveis: cima, baixo, esquerda, direita
-    const moves: [number, number][] = [
-      [-1, 0], // Cima
-      [1, 0],  // Baixo
-      [0, -1], // Esquerda
-      [0, 1],  // Direita
-    ];
-
-    for (const [dx, dy] of moves) {
-      const newRow = positionX + dx;
-      const newCol = positionY + dy;
-      const newPosition = `${newRow}-${newCol}`;
-
-      if (
-        newRow >= 0 &&
-        newRow < warehouse.getRows() &&
-        newCol >= 0 &&
-        newCol < warehouse.getCols() &&
-        !visited.has(newPosition) &&
-        warehouse.isCellEmpty(newRow, newCol)
-      ) {
-        const newCoordinates = new Vertex(newRow, newCol);
-        const newDistanceTraveled = distanceTraveled + 1;
-        const newRobot = new Robot(newCoordinates, newDistanceTraveled);
-        queue.push(newRobot);
-      }
-    }
   }
 
   return ["Caminho não encontrado"];
