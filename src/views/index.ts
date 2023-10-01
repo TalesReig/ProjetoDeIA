@@ -81,5 +81,46 @@ class BuscaLargura extends Busca {
   }
 }
 
-const algbusca = new BuscaLargura();
-algbusca.realizaBusca('Porto Alegre', 'Manaus');
+class BuscaProfundidade extends Busca {
+  realizaBusca(origem: string, destino: string) {
+    const [resultado, qtdVisitados, qtdExpandidos] = this.buscaProfundidade(origem, destino);
+    this.mostraResultado(resultado, qtdVisitados, qtdExpandidos);
+  }
+
+  buscaProfundidade(origem: string, destino: string): [Estado | null, number, number] {
+    const atual = new Estado(origem, null);
+    const fronteira: Estado[] = [atual];
+    const visitados: Set<string> = new Set();
+    let qtdVisitados = 1;
+    let qtdExpandidos = 0;
+    let resultado: Estado | null = null;
+  
+    while (fronteira.length > 0 && resultado === null) {
+      const atual = fronteira.pop()!; // Pop do final para simular a busca em profundidade
+      qtdExpandidos++;
+      visitados.add(atual.cidade); // Adicione à lista de visitados aqui
+  
+      const cidades = this.rotas[atual.cidade];
+  
+      for (const cidade of cidades) {
+        if (cidade === destino) {
+          const novo = new Estado(cidade, atual);
+          resultado = novo;
+        } else if (!visitados.has(cidade)) {
+          qtdVisitados++; // Incrementa apenas quando um novo estado é adicionado à fronteira
+          const novo = new Estado(cidade, atual);
+          fronteira.push(novo);
+        }
+      }
+    }
+  
+    return [resultado, qtdVisitados, qtdExpandidos];
+  }  
+}
+
+const algbuscaLargura = new BuscaLargura();
+algbuscaLargura.realizaBusca('Porto Alegre', 'Rio de Janeiro');
+
+
+const algbuscaProfundidade = new BuscaProfundidade();
+algbuscaProfundidade.realizaBusca('Porto Alegre', 'Rio de Janeiro');
