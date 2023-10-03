@@ -1,255 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-  <title>Bootstrap Example</title>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-oCe74j5E5f5LPp4f3ktz7xj5F5mI5tK7zwf5p5KLp5cmgtL4Gu5F5go5jK7IR5J7k" crossorigin="anonymous">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  </head>
+  
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-row bg-white">
+    <h1 style="color: black;">Opções de Busca</h1>
+    <ul>
+        <a href="#" style="text-decoration: none;">Busca em Largura</a>
+        <i class="bi bi-search"></i>
+        <a href="#" style="text-decoration: none;">Busca em Profundidade</a>
+        <i class="bi bi-search"></i>
+        <a href="#" style="text-decoration: none;">Busca Gulosa</a>
+        <i class="bi bi-search"></i>
+    </ul>
 
-<body class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-row">
-  <h1>Opções de Busca</h1>
-  <ul>
-    <a href="#">Busca em Largura</a>
-    <a> /</a>
-    <a href="#">Busca em Profundidade</a>
-    <a> /</a>
-    <a href="#">Busca Gulosa</a>
-  </ul>
-
-  <!-- Tabela Responsiva -->
-  <div class="container align-content-center justify-content-evenly">
-    <table class="table table-bordered table-small" style="width: 50% !important;">
-      <thead>
-        <tr>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-        </tr>
-        <tr>
-          <td class="cell p-0">1</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">11</td>
-          <td class="cell p-0">21</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">31</td>
-          <td class="cell p-0">41</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">51</td>
-          <td class="cell p-0">61</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">71</td>
-          <td class="cell p-0">81</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">91</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">2</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">12</td>
-          <td class="cell p-0">22</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">32</td>
-          <td class="cell p-0">42</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">52</td>
-          <td class="cell p-0">62</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">72</td>
-          <td class="cell p-0">82</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">92</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">3</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">13</td>
-          <td class="cell p-0">23</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">33</td>
-          <td class="cell p-0">43</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">53</td>
-          <td class="cell p-0">63</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">73</td>
-          <td class="cell p-0">83</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">93</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">4</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">14</td>
-          <td class="cell p-0">24</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">34</td>
-          <td class="cell p-0">44</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">54</td>
-          <td class="cell p-0">64</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">74</td>
-          <td class="cell p-0">84</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">94</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">5</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">15</td>
-          <td class="cell p-0">25</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">35</td>
-          <td class="cell p-0">45</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">55</td>
-          <td class="cell p-0">65</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">75</td>
-          <td class="cell p-0">85</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">95</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">6</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">16</td>
-          <td class="cell p-0">26</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">36</td>
-          <td class="cell p-0">46</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">56</td>
-          <td class="cell p-0">66</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">76</td>
-          <td class="cell p-0">86</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">96</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">7</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">17</td>
-          <td class="cell p-0">27</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">37</td>
-          <td class="cell p-0">47</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">57</td>
-          <td class="cell p-0">67</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">77</td>
-          <td class="cell p-0">87</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">97</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">8</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">18</td>
-          <td class="cell p-0">28</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">38</td>
-          <td class="cell p-0">48</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">58</td>
-          <td class="cell p-0">68</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">78</td>
-          <td class="cell p-0">88</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">98</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">9</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">19</td>
-          <td class="cell p-0">29</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">39</td>
-          <td class="cell p-0">49</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">59</td>
-          <td class="cell p-0">69</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">79</td>
-          <td class="cell p-0">89</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">99</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">10</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">20</td>
-          <td class="cell p-0">30</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">40</td>
-          <td class="cell p-0">50</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">60</td>
-          <td class="cell p-0">70</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">80</td>
-          <td class="cell p-0">90</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">100</td>
-        </tr>
-        <tr>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-0">x</td>
-        </tr>
-        <tr>
-          <td class="cell p-0">R1</td>
-          <td class="cell p-0">R2</td>
-          <td class="cell p-0">R3</td>
-          <td class="cell p-0">R4</td>
-          <td class="cell p-0">R5</td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-          <td class="cell p-3"></td>
-        </tr>
-      </thead>
-    </table>
+ <!-- Tabela Responsiva -->
+ <div class="container align-content-center justify-content-evenly">
+  <table class="table table-bordered table-small" style="width: 50% !important;">
+    <thead>
+      <tr>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+      </tr>
+      <tr>
+        <td class="cell p-0">1</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">11</td>
+        <td class="cell p-0">21</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">31</td>
+        <td class="cell p-0">41</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">51</td>
+        <td class="cell p-0">61</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">71</td>
+        <td class="cell p-0">81</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">91</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">2</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">12</td>
+        <td class="cell p-0">22</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">32</td>
+        <td class="cell p-0">42</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">52</td>
+        <td class="cell p-0">62</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">72</td>
+        <td class="cell p-0">82</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">92</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">3</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">13</td>
+        <td class="cell p-0">23</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">33</td>
+        <td class="cell p-0">43</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">53</td>
+        <td class="cell p-0">63</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">73</td>
+        <td class="cell p-0">83</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">93</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">4</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">14</td>
+        <td class="cell p-0">24</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">34</td>
+        <td class="cell p-0">44</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">54</td>
+        <td class="cell p-0">64</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">74</td>
+        <td class="cell p-0">84</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">94</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">5</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">15</td>
+        <td class="cell p-0">25</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">35</td>
+        <td class="cell p-0">45</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">55</td>
+        <td class="cell p-0">65</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">75</td>
+        <td class="cell p-0">85</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">95</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">6</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">16</td>
+        <td class="cell p-0">26</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">36</td>
+        <td class="cell p-0">46</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">56</td>
+        <td class="cell p-0">66</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">76</td>
+        <td class="cell p-0">86</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">96</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">7</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">17</td>
+        <td class="cell p-0">27</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">37</td>
+        <td class="cell p-0">47</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">57</td>
+        <td class="cell p-0">67</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">77</td>
+        <td class="cell p-0">87</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">97</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">8</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">18</td>
+        <td class="cell p-0">28</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">38</td>
+        <td class="cell p-0">48</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">58</td>
+        <td class="cell p-0">68</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">78</td>
+        <td class="cell p-0">88</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">98</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">9</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">19</td>
+        <td class="cell p-0">29</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">39</td>
+        <td class="cell p-0">49</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">59</td>
+        <td class="cell p-0">69</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">79</td>
+        <td class="cell p-0">89</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">99</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">10</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">20</td>
+        <td class="cell p-0">30</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">40</td>
+        <td class="cell p-0">50</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">60</td>
+        <td class="cell p-0">70</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">80</td>
+        <td class="cell p-0">90</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">100</td>
+      </tr>
+      <tr>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-0">x</td>
+      </tr>
+      <tr>
+        <td class="cell p-0">R1</td>
+        <td class="cell p-0">R2</td>
+        <td class="cell p-0">R3</td>
+        <td class="cell p-0">R4</td>
+        <td class="cell p-0">R5</td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+        <td class="cell p-3"></td>
+      </tr>
+    </thead>
+  </table>
+</div>
+<!-- Fim da Tabela Responsiva -->
+    
+ <!-- Footer -->
+<footer class="container-fluid bg-white text-light py-4">
+  <div class="row">
+    <div class="col-auto bg-black">
+      <a href="https://github.com/CamileCoelho" target="_blank" style="text-decoration: none; color: inherit;">Camile Coelho Arruda</a>
+      <i class="bi bi-github"></i>
+    </div>
+    <div class="col-auto bg-black">
+      <a href="https://github.com/Joao-Tietbohl" target="_blank" style="text-decoration: none; color: inherit;">Joao Pedro Tietbohl Correa</a>
+      <i class="bi bi-github"></i>
+    </div>
+    <div class="col-auto bg-black">
+      <a href="https://github.com/LucasBleyer" target="_blank" style="text-decoration: none; color: inherit;">Lucas Bleyer</a>
+      <i class="bi bi-github"></i>
+    </div>
+    <div class="col-auto bg-black">
+      <a href="https://github.com/PedrouNunes" target="_blank" style="text-decoration: none; color: inherit;">Pedro Henrique Nunes Souza</a>
+      <i class="bi bi-github"></i>
+    </div>
+    <div class="col-auto bg-black">
+      <a href="https://github.com/TalesReig" target="_blank" style="text-decoration: none; color: inherit;"> Tales Reig Cordova</a>
+      <i class="bi bi-github"></i>
+    </div>
   </div>
-  <!-- Fim da Tabela Responsiva -->
+</footer>
 
-</body>
 
+    <!-- End Example Code -->
+  </body>
 </html>
