@@ -1,6 +1,6 @@
 import { Rotas } from "../models/Rotas"; 
 
-export class BuscaHeuristica {
+export class BuscaGulosa {
   rotas: Rotas; 
 
   constructor(rotas: Rotas) {
