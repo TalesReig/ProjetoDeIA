@@ -57,17 +57,26 @@ export class Busca {
   }
   
 
-  mostraResultado(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number) {
+  pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string {
+    
+    var caminho = "";
     if (resultado === null) {
       console.log('Solução não encontrada.');
     } else {
       console.log('***Rota encontrada***');
       while (resultado !== null) {
         console.log(resultado.coordenada);
+        if(resultado.pai == null){
+          caminho += `${resultado.coordenada}`
+        }else{            
+            caminho += `${resultado.coordenada} - `
+        }
         resultado = resultado.pai;
       }
     }
     console.log('Vertices visitados: ', qtdVisitados);
     console.log('Vertices expandidos: ', qtdExpandidos);
+
+    return caminho;
   }
 }

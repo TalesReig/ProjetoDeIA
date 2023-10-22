@@ -4,9 +4,9 @@ import { Vertice } from "../models/Vertice";
 
 class BuscaLargura extends Busca {
   realizaBusca(origem: string, destino: string) {
-    const [caminho, qtdVisitados, qtdExpandidos] = this.busca(origem, destino);
-    // this.mostraResultado(resultado, qtdVisitados, qtdExpandidos);
-    const resultado = new Resultado(caminho!, qtdVisitados, qtdExpandidos)
+    const [vertice, qtdVisitados, qtdExpandidos] = this.busca(origem, destino);
+    var caminhoString = this.pegaCaminho(vertice, qtdVisitados, qtdExpandidos);
+    const resultado = new Resultado(caminhoString, qtdVisitados, qtdExpandidos)
     return resultado;
   }
 }

@@ -4,7 +4,7 @@ import { Vertice } from "../models/Vertice";
 class BuscaProfundidade extends Busca {
   realizaBusca(origem: string, destino: string) {
     const [resultado, qtdVisitados, qtdExpandidos] = this.buscaProfundidade(origem, destino);
-    this.mostraResultado(resultado, qtdVisitados, qtdExpandidos);
+    this.pegaCaminho(resultado, qtdVisitados, qtdExpandidos);
   }
 
   buscaProfundidade(origem: string, destino: string): [Vertice | null, number, number] {
