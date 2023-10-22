@@ -13,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
 
 </head>
 
@@ -256,7 +257,7 @@
 
           <div class="form-group mb-3 position-relative py-1">
             <label class="form-label">Escolha seu algoritmo de busca:</label>
-            <select class="form-control form-select  w-100">
+            <select class="form-control form-select  w-100" id="algoritmo">
               <option value=""> Selecione seu algoritimo...  </option>
               <option value="0">Busca em Largura</option>
               <option value="1">Busca em Profundidade</option>
@@ -266,7 +267,7 @@
 
           <div class="form-group mb-3 position-relative py-1">
             <label class="form-label">Escolha o número da prateleira:</label>
-            <select class="form-control form-select w-100">
+            <select class="form-control form-select w-100" id="prateleira">
               <option value="">Selecione um número...</option>
               <script>
                 for (let i = 1; i <= 100; i++) {
@@ -280,8 +281,8 @@
             <button id="calcularBtn" class="btn btn-dark">Calcular</button>
           </div>
 
-          <div id="resultado" class="mt-3">
-            <textarea class="form-control w-100 h-100" name="" id="" rows="7" readonly></textarea>
+          <div id="resultadoDiv" class="mt-3">
+            <textarea class="form-control w-100 h-100" name="" id="resultado" rows="7" readonly></textarea>
           </div>
 
         </div>
