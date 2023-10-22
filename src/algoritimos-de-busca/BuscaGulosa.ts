@@ -1,3 +1,4 @@
+import { Resultado } from "../models/Resultado";
 import { Rotas } from "../models/Rotas"; 
 
 export class BuscaGulosa {
@@ -40,10 +41,12 @@ export class BuscaGulosa {
       }
   }    
 
-  realizaBusca(origem: string, destino: string): void {
+  realizaBusca(origem: string, destino: string): Resultado {
     const fronteira: Vertice[] = [];
     const { resultado, qtdVisitados, qtdExpandidos } = this.busca(origem, destino, fronteira);
-    this.mostraResultado(resultado, qtdVisitados, qtdExpandidos);
+    var caminhoString = this.pegaCaminho(resultado, qtdVisitados, qtdExpandidos);
+    const resultadoObjeto = new Resultado(caminhoString, qtdVisitados, qtdExpandidos)
+    return resultadoObjeto;
   }
 
   calculaDistancia(origem: string, destino: string){
@@ -126,7 +129,7 @@ export class BuscaGulosa {
     return { newFronteira: fronteira, newQtdVisitados: qtdVisitados };
   }
 
-  private mostraResultado(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): void {
+  private pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string {
     if (resultado === null) {
       console.log('Solução não encontrada.');
     } else {
@@ -143,6 +146,8 @@ export class BuscaGulosa {
     }
     console.log('Estados visitados: ', qtdVisitados);
     console.log('Estados expandidos: ', qtdExpandidos);
+
+    return "";
   }
 }
 

@@ -5,7 +5,6 @@ import { BuscaGulosa } from "../algoritimos-de-busca/BuscaGulosa";
 import { TiposDeBuscaEnum } from "../models/TiposDeBuscaEnum";
 import { Robo } from "../models/Robo";
 import { Resultado } from "../models/Resultado";
-import { Vertice } from "../models/Vertice";
 
 const robo1 = new Robo('0x12', "Robo 1");
 const robo2 = new Robo('1x12', "Robo 2");
@@ -18,7 +17,9 @@ const algbuscaLargura = new BuscaLargura(rotas);
 const algbuscaProfundidade = new BuscaProfundidade(rotas);
 const algbuscaGulosa = new BuscaGulosa(rotas);
 
-
+algbuscaLargura.realizaBusca("0x12", "5");
+// algbuscaProfundidade.realizaBusca("0x12", "0x0");
+// algbuscaGulosa.realizaBusca("0x12", "5");
 
 function handleCalcularClick() {
     const algoritmoElement = document.getElementById("algoritmo") as HTMLSelectElement | null;
@@ -34,10 +35,10 @@ function handleCalcularClick() {
       resposta = realizaBuscaLargura(prateleira);
     
     } else if (algoritmo === "1") {
-        algbuscaProfundidade.realizaBusca('0x0', '5x0');
+      resposta = realizaBuscaProfundidade(prateleira);
       
     } else if (algoritmo === "2") {
-        algbuscaGulosa.realizaBusca('0x0', '2');
+      resposta = realizaBuscaGulosa(prateleira);
      
     } else {
       // Algoritmo não selecionado
@@ -68,14 +69,44 @@ function handleCalcularClick() {
     var resultadoR2 = algbuscaLargura.realizaBusca(robo2.coordenada, prateleira);
     var resultadoR3 = algbuscaLargura.realizaBusca(robo3.coordenada, prateleira);
     var resultadoR4 = algbuscaLargura.realizaBusca(robo4.coordenada, prateleira);
-
-    resultadoR1.robo = robo1;
-    resultadoR2.robo = robo2;
-    resultadoR3.robo = robo3;
-    resultadoR4.robo = robo4;
+    
+    atribuiRoboAoResultado(resultadoR1, resultadoR2, resultadoR3, resultadoR4)
     
     return comparaResultado([resultadoR1, resultadoR2, resultadoR3, resultadoR4]);
 }
+
+function realizaBuscaProfundidade(prateleira: string) {
+  var resultadoR1 = algbuscaProfundidade.realizaBusca(robo1.coordenada, prateleira);
+  var resultadoR2 = algbuscaProfundidade.realizaBusca(robo2.coordenada, prateleira);
+  var resultadoR3 = algbuscaProfundidade.realizaBusca(robo3.coordenada, prateleira);
+  var resultadoR4 = algbuscaProfundidade.realizaBusca(robo4.coordenada, prateleira);
+
+  atribuiRoboAoResultado(resultadoR1, resultadoR2, resultadoR3, resultadoR4)
+  
+  return comparaResultado([resultadoR1, resultadoR2, resultadoR3, resultadoR4]);
+}
+
+function realizaBuscaGulosa(prateleira: string) {
+  var resultadoR1 = algbuscaGulosa.realizaBusca(robo1.coordenada, prateleira);
+  var resultadoR2 = algbuscaGulosa.realizaBusca(robo2.coordenada, prateleira);
+  var resultadoR3 = algbuscaGulosa.realizaBusca(robo3.coordenada, prateleira);
+  var resultadoR4 = algbuscaGulosa.realizaBusca(robo4.coordenada, prateleira);
+
+  atribuiRoboAoResultado(resultadoR1, resultadoR2, resultadoR3, resultadoR4)
+  
+  return comparaResultado([resultadoR1, resultadoR2, resultadoR3, resultadoR4]);
+}
+
+function atribuiRoboAoResultado(resultadoR1: Resultado, resultadoR2: Resultado, resultadoR3: Resultado, resultadoR4: Resultado) {
+
+  resultadoR1.robo = robo1;
+  resultadoR2.robo = robo2;
+  resultadoR3.robo = robo3;
+  resultadoR4.robo = robo4;
+
+}
+
+
 
 function comparaResultado(valores : Resultado[]) : Resultado{
    var menorQntVisitado : Number = 999;

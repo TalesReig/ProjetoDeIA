@@ -1,16 +1,19 @@
 import { Busca } from "../models/Busca";
+import { Resultado } from "../models/Resultado";
 import { Vertice } from "../models/Vertice";
 
 class BuscaProfundidade extends Busca {
   realizaBusca(origem: string, destino: string) {
-    const [resultado, qtdVisitados, qtdExpandidos] = this.buscaProfundidade(origem, destino);
-    this.pegaCaminho(resultado, qtdVisitados, qtdExpandidos);
+    const [vertice, qtdVisitados, qtdExpandidos] = this.buscaProfundidade(origem, destino);
+    var caminhoString = this.pegaCaminho(vertice, qtdVisitados, qtdExpandidos);
+    const resultado = new Resultado(caminhoString, qtdVisitados, qtdExpandidos)
+    return resultado;
   }
 
   buscaProfundidade(origem: string, destino: string): [Vertice | null, number, number] {
     if(origem === destino)
       return [null, 0, 0];
-    
+          
     const atual = new Vertice(origem, null);
     const fronteira: Vertice[] = [atual];
     const visitados: Set<string> = new Set();
