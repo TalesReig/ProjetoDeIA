@@ -57,20 +57,19 @@ export class Busca {
   }
   
 
-  pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string {
+  pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string[] {
     
-    var caminho = "";
+    var caminho = [];
     if (resultado === null) {
       console.log('Solução não encontrada.');
     } else {
       console.log('***Rota encontrada***');
+
       while (resultado !== null) {
         console.log(resultado.coordenada);
-        if(resultado.pai == null){
-          caminho += `${resultado.coordenada}`
-        }else{            
-            caminho += `${resultado.coordenada} - `
-        }
+
+        caminho.push(resultado.coordenada);
+
         resultado = resultado.pai;
       }
     }

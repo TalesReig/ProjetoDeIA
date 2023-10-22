@@ -129,12 +129,12 @@ export class BuscaGulosa {
     return { newFronteira: fronteira, newQtdVisitados: qtdVisitados };
   }
 
-  private pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string {
+  private pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string[] {
+    const caminho: string[] = [];
     if (resultado === null) {
       console.log('Solução não encontrada.');
     } else {
       console.log('***Rota encontrada***');
-      const caminho: string[] = [];
       while (resultado !== null) {
         caminho.push(resultado.coordenada + ' - ' + resultado.gn);
         resultado = resultado.pai;
@@ -147,7 +147,7 @@ export class BuscaGulosa {
     console.log('Estados visitados: ', qtdVisitados);
     console.log('Estados expandidos: ', qtdExpandidos);
 
-    return "";
+    return caminho;
   }
 }
 

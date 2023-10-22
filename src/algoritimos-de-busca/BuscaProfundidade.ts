@@ -21,29 +21,30 @@ class BuscaProfundidade extends Busca {
     let qtdExpandidos = 0;
     let resultado: Vertice | null = null;
 
-    while (fronteira.length >= 0 && resultado === null) {
-      const atual = fronteira.pop()!; 
-      qtdExpandidos++; 
-      visitados.add(atual.coordenada); 
+    while (fronteira.length > 0 && resultado === null) {
+      const atual = fronteira.shift()!;
+      qtdExpandidos++;
+      visitados.add(atual.coordenada);
 
-      const coordenadas = this.rotas.rotas[atual.coordenada];
-
-      for (const coordenada of coordenadas) {
-        if (coordenada === destino) 
-        {
-          qtdVisitados++;
-          const novo = new Vertice(coordenada, atual);
-          visitados.add(coordenada);
-          resultado = novo;
-        } 
-        else 
-        {
-          qtdVisitados++;
-          const novo = new Vertice(coordenada, atual);
-          fronteira.push(novo);
-          visitados.add(coordenada);             
+      if (this.rotas.rotas[atual.coordenada]) {
+        const coordenadas = this.rotas.rotas[atual.coordenada];
+        
+        for (const coordenada of coordenadas) {
+          if (coordenada === destino) {
+            qtdVisitados++;
+            const novo = new Vertice(coordenada, atual);
+            visitados.add(coordenada);
+            resultado = novo;
+            break; 
+          } else if (!visitados.has(coordenada)) {
+            qtdVisitados++;
+            const novo = new Vertice(coordenada, atual);
+            fronteira.push(novo);
+          } else {
+            qtdVisitados++;
+          }
         }
-      }      
+      }
     }
 
     return [resultado, qtdVisitados, qtdExpandidos];
