@@ -1,4 +1,4 @@
-import { Busca } from "../models/Busca";
+import { Busca } from "./Busca";
 import { Resultado } from "../models/Resultado";
 import { Vertice } from "../models/Vertice";
 

@@ -1,5 +1,5 @@
-import { Rotas } from "./Rotas";
-import { Vertice } from "./Vertice";
+import { Rotas } from "../models/Rotas";
+import { Vertice } from "../models/Vertice";
 
 export class Busca {
   rotas: Rotas; 
@@ -58,7 +58,6 @@ export class Busca {
   
 
   pegaCaminho(resultado: Vertice | null, qtdVisitados: number, qtdExpandidos: number): string[] {
-    
     var caminho = [];
     if (resultado === null) {
       console.log('Solução não encontrada.');
@@ -72,6 +71,7 @@ export class Busca {
 
         resultado = resultado.pai;
       }
+      caminho.reverse();
     }
     console.log('Vertices visitados: ', qtdVisitados);
     console.log('Vertices expandidos: ', qtdExpandidos);
